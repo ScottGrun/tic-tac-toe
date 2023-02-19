@@ -9,9 +9,10 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode
     variant: "primary" | "secondary" | "tertiary",
     size: "sm" | "lg"
+    isFullWidth?: boolean
 }
 
-export const Button:FC<ButtonProps> = ({children, variant = 'primary', size = 'lg', ...rest}) => {
+export const Button:FC<ButtonProps> = ({children, variant = 'primary', size = 'lg', isFullWidth, ...rest}) => {
 
   const variants = {
     primary: {
@@ -31,7 +32,7 @@ export const Button:FC<ButtonProps> = ({children, variant = 'primary', size = 'l
   const sizes = {
     sm: {
       edge: 'rounded-[10px]',
-      front: 'text-base font-bold leading-[20px] p-4 rounded-[10px] translate-y-[-4px]',
+      front: 'text-base font-bold leading-[20px] p-4 rounded-[10px] translate-y-[-4px] group-hover:translate-y-[-2px]',
     },
     lg: {
       edge: 'rounded-[15px]',
@@ -42,10 +43,10 @@ export const Button:FC<ButtonProps> = ({children, variant = 'primary', size = 'l
 
 
   return (
-<button className='group relative border-none bg-transparent p-0 cursor-pointer outline-offset-4' {...rest}>
+<button className={clsx('group relative border-none bg-transparent p-0 cursor-pointer outline-offset-4', isFullWidth && 'w-full')} {...rest}>
   {/* Acts as the edge of the button */}
   <span className={clsx('absolute top-0 left-0 w-full h-full rounded-[15px]', variants[variant].edge, sizes[size].edge)}></span>
-  <span className={clsx('block relative uppercase text-dark  transition-transform ease-[cubic-bezier(0.3,0.7,0.4,1)] group-active:translate-y-[-1px] group-active:duration-[100ms] group-hover:transition-transform group-hover:ease-[cubic-bezier(0.3,0.7,0.4,1.5)]', variants[variant].front, sizes[size].front)}>
+  <span className={clsx('block relative uppercase text-dark transition-transform ease-[cubic-bezier(0.3,0.7,0.4,1)] group-active:translate-y-[-1px] group-active:duration-[100ms] group-hover:transition-transform group-hover:ease-[cubic-bezier(0.3,0.7,0.4,1.5)]', variants[variant].front, sizes[size].front)}>
     {children}
   </span>
 </button>

@@ -5,3 +5,13 @@
 body{
     background-color: theme('colors.dark.DEFAULT')
 }
+
+@layer components {
+    .heading-xs {
+      @apply font-bold text-base leading-[20.16px] tracking-[1px]
+    }
+
+    .body{
+      @apply font-medium text-sm leading-[17.64px] tracking-[0.88px]
+    }
+  }
