@@ -2,16 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background-color: theme('colors.dark.DEFAULT')
+body {
+  background-color: theme('colors.dark.DEFAULT')
 }
 
 @layer components {
-    .heading-xs {
-      @apply font-bold text-base leading-[20.16px] tracking-[1px]
-    }
 
-    .body{
-      @apply font-medium text-sm leading-[17.64px] tracking-[0.88px]
-    }
+  .heading-xs {
+    @apply font-bold text-base leading-[20.16px] tracking-[1px]
   }
+
+  .heading-sm {
+    @apply font-bold text-xl leading-[25.2px] tracking-[1.25px]
+  }
+
+  .heading-m {
+    @apply font-bold text-2xl leading-[30.24px] tracking-[1.5px]
+  }
+
+  .heading-l {}
+
+  .body {
+    @apply font-medium text-sm leading-[17.64px] tracking-[0.88px]
+  }
+}

@@ -12,7 +12,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const [playerOneMark, setPlayerOneMark] = useState<PlayerOneMark>('x')
+  const [playerOneMark, setPlayerOneMark] = useState<PlayerOneMark>('X')
   return (
     <html lang="en">
       {/*
@@ -22,7 +22,7 @@ export default function RootLayout({
       <head />
       <body>
         <PlayerOneMarkContext.Provider value={[playerOneMark, setPlayerOneMark]}>
-          <div className={clsx(outfit.className, 'px-6 min-h-screen')}>
+          <div className={clsx(outfit.className, 'px-[23px] min-h-screen')}>
             {children}
           </div>
         </PlayerOneMarkContext.Provider>

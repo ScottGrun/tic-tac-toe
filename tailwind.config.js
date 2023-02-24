@@ -1,10 +1,12 @@
+const plugin = require('tailwindcss/plugin')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
- 
+
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
@@ -18,7 +20,7 @@ module.exports = {
         },
         secondary: {
           DEFAULT: "#F2B137",
-          dark :'#CC8B13',
+          dark: '#CC8B13',
           light: '#FFC860',
         },
         tertiary: {
@@ -33,5 +35,9 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addVariant }) {
+      addVariant('not-last', '&:not(:last-child)')
+    })
+  ]
 }

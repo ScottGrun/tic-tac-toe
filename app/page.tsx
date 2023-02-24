@@ -7,7 +7,7 @@ import { PlayerSwitcher } from "@/components/PlayerSwitcher";
 export default function Home() {
   return (
     <main className="min-h-screen flex ">
-      <div className="w-full my-auto" >
+      <div className="w-[327px] md:w-[460px] my-auto mx-auto" >
         <Logo className="mb-8 mx-auto" />
         <PlayerSwitcher />
         <div className="grid grid-cols-1 gap-6 mt-8 ">
